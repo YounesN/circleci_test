@@ -1,4 +1,8 @@
 version: 2.0
 
 jobs:
-	-pre: apt-get install cuda
+  build:
+    steps:
+      - pre: apt-get install cuda
+      - pre: nvcc main.cu -o main -lcuda
+      - run: ./main
